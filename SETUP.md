@@ -8,7 +8,7 @@ Steps followed:
 
 - In the imager:
   - Enable SSH
-  - Set a <username> and a password
+  - Set a <user_name> and a password
   - Enter Wifi name (SSID) and Wifi password
   - Enter custom hostname: <my_hostname>
 
