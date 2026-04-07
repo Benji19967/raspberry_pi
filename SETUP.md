@@ -1,19 +1,61 @@
 # Setting up the Raspberry Pi
 
-## Enabling SSH
+## Imager
 
-https://roboticsbackend.com/enable-ssh-on-raspberry-pi-raspbian/
+Download the Imager onto laptop.
 
-Steps followed:
-
-- In the imager:
+- Launch the imager, and then:
   - Enable SSH
-  - Set a <user_name> and a password
+   - Use `id_ed25519.pub` key
+  - Set a <user_name> (e.g. `labrecqb`) and a password
   - Enter Wifi name (SSID) and Wifi password
-  - Enter custom hostname: <my_hostname>
+  - Enter custom hostname: <my_hostname> (`ben-raspi`)
 
 - Connect USB stick or micro SD card containing the imager to the Pi
 - In computer terminal: `ping <my_hostname>.local`
   - Gets the IP address of the Pi
 
-- `ssh <user_name>@<ip_address>`
+
+## User data
+
+You can always check the info (<user_name>, <my_hostname>, etc) you configured on the bootloader in the file
+`user-data` (open it with a text editor).
+
+## SSH
+
+Get local ip address:
+
+```
+ipconfig getifaddr en0
+```
+
+Find the ip address of the Raspberry Pi (may need to rerun this a few times until 
+the Pi is registered to the network):
+
+```
+sudo nmap -sn -n <ip_address>/24
+```
+
+```
+...
+Nmap scan report for 192.168.0.24
+Host is up (0.13s latency).
+MAC Address: ... (Raspberry Pi Trading)
+...
+```
+
+ssh into the rpi:
+
+```
+ssh <user_name>@<ip_address_rpi>
+```
+
+## Github
+
+
+On the pi, generate an ssh keypair:
+```
+ssh-keygen -t ed25519 -C "raspberry-pi-key"
+```
+
+and add the public key to github ssh keys.
