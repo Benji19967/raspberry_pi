@@ -12,8 +12,6 @@ Download the Imager onto laptop.
   - Enter custom hostname: <my_hostname> (`ben-raspi`)
 
 - Connect USB stick or micro SD card containing the imager to the Pi
-- In computer terminal: `ping <my_hostname>.local`
-  - Gets the IP address of the Pi
 
 
 ## User data
@@ -22,6 +20,14 @@ You can always check the info (<user_name>, <my_hostname>, etc) you configured o
 `user-data` (open it with a text editor).
 
 ## SSH
+
+### Get IP of PI
+
+#### Option 1
+
+`ping <my_hostname>.local`
+
+#### Option 2
 
 Get local ip address:
 
@@ -44,7 +50,7 @@ MAC Address: ... (Raspberry Pi Trading)
 ...
 ```
 
-ssh into the rpi:
+### ssh into the rpi:
 
 ```
 ssh <user_name>@<ip_address_rpi>
