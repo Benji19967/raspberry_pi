@@ -65,3 +65,26 @@ ssh-keygen -t ed25519 -C "raspberry-pi-key"
 ```
 
 and add the public key to github ssh keys.
+
+## Apt
+
+# Force-fix any partially installed packages
+```
+sudo apt --fix-broken install -y
+```
+
+# Clear out the local cache of old package files
+```
+sudo apt clean
+sudo apt autoclean
+```
+
+# Update the database to the absolute newest versions available
+```
+sudo apt update
+```
+
+# Upgrade existing packages to resolve library mismatches
+```
+sudo apt full-upgrade -y
+```
